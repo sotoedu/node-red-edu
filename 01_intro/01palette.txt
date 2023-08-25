@@ -58,6 +58,13 @@ msg.payload = count;
 
 return msg;
 
+6. inject - function - debug
+function:
+node.log("Something happened");
+node.warn("Something happened you should know about");
+node.error("Oh no, something bad happened");
+
+return msg;
   
 
 
