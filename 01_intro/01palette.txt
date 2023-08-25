@@ -1,8 +1,8 @@
   1. inject - debug
   2. inject - function - debug
-
   function:
   var dt = new Date();
   msg.payload = dt;
   return msg;
+  3. inject
 
