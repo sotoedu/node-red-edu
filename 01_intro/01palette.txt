@@ -1,12 +1,15 @@
-1. inject - debug
+1. Hello, world!
+inject - debug
 
-2. inject - function - debug
+2. Date
+inject - function - debug
 function:
 var dt = new Date();
 msg.payload = dt;
 return msg;
 
-3. inject - function - debug
+3. Date2
+inject - function - debug
 function:
 var dt = new Date(msg.payload);
 var msg = {
@@ -20,7 +23,8 @@ var msg = {
 msg.payload = msg;
 return msg;
 
-4. inject - function - csv - write file
+4. file
+inject - function - csv - write file
 function:
 var dt = new Date(msg.payload);
 var value = {
@@ -40,7 +44,8 @@ comma
 write file:
 c:\workspace\test.csv
 
-5. inject - function - debug
+5. variables 
+inject - function - debug
 function:
 // context - the node’s local context
 // flow - the flow scope context
@@ -58,7 +63,17 @@ msg.payload = count;
 
 return msg;
 
-6. inject - function - debug
+6. multiple values
+inject - function - debug
+function:
+// Node-RED 0.19 or later
+var values = flow.get(["count", "colour", "temperature"]);
+flow.set(["count", "colour", "temperature"], [123, "red", "12.5"]);
+msg.payload = values;
+return msg;
+
+7. Logging events
+inject - function - debug
 function:
 node.log("Something happened");
 node.warn("Something happened you should know about");
