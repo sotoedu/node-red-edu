@@ -105,6 +105,15 @@ node.warn("Something happened you should know about");
 node.error("Oh no, something bad happened");
 
 return msg;
+
+9. Adding Status
+inject - function - debug
+function:
+node.status({ fill: "red", shape: "ring", text: "disconnected" });
+// node.status({ fill: "green", shape: "dot", text: "connected" });
+// node.status({ text: "Just text status" });
+// node.status({});   // to clear the status
+
   
 
 
