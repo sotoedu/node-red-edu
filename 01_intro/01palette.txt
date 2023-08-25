@@ -17,6 +17,26 @@ var msg = {
 }
 msg.payload = msg;
 return msg;
+4. inject - function - csv - write file
+function:
+var dt = new Date(msg.payload);
+var value = {
+    'month': dt.getMonth() + 1,
+    'day': dt.getDate(),
+    'year': dt.getFullYear(),
+    'hours': dt.getHours(),
+    'mins': dt.getMinutes(),
+    'msecs': dt.getMilliseconds()
+}
+return {payload:value}
+
+csv:
+row name: month,day,year,hours,mins,msecs
+comma
+
+write file:
+c:\workspace\test.csv
+
 
   
 
