@@ -72,7 +72,32 @@ flow.set(["count", "colour", "temperature"], [123, "red", "12.5"]);
 msg.payload = values;
 return msg;
 
-7. Logging events
+7. Asynchronous context access
+inject - function - debug
+function:
+context.get('count', function (err, count) {
+    if (err) {
+        node.error(err, msg);
+    } else {
+        // initialise the counter to 0 if it doesn't exist already
+        count = count || 0;
+        count += 1;
+        // store the value back
+        context.set('count', count, function (err) {
+            if (err) {
+                node.error(err, msg);
+            } else {
+                // make it part of the outgoing msg object
+                msg.payload = count;
+                // send the message
+                node.send(msg);
+            }
+        });
+    }
+});
+return msg;
+
+8. Logging events
 inject - function - debug
 function:
 node.log("Something happened");
